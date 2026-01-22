@@ -1,5 +1,5 @@
 <template>
-  <div class="home-container">
+  <div>
     <h1>Welcome to the Home Page</h1>
     <el-button>Click me</el-button>
     <el-icon-Plus></el-icon-Plus>

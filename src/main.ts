@@ -1,5 +1,4 @@
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
 import router from "./router/index.ts"
 import ElementPlus from 'element-plus'
@@ -9,8 +8,8 @@ import * as Icons from '@element-plus/icons'
 const app = createApp(App)
 
 for(let i in Icons){
-  console.log(i);
-    app.component(`el-icon-${i}`, (Icons as any)[i])
+  // console.log(i);
+  app.component(`el-icon-${i}`, (Icons as any)[i])
 }
 
 app.use(router)
