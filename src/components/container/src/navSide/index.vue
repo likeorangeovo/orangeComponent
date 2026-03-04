@@ -1,12 +1,12 @@
 <template>
-  <el-menu default-active="1" :collapse="collapse" class="el-menu-vertical-demo" @open="" @close="">
-    <el-menu-item index="1">
+  <el-menu default-active="1" :collapse="collapse" class="el-menu-vertical-demo" router @open="" @close="">
+    <el-menu-item index="/">
       <el-icon-Menu></el-icon-Menu>
       <span class="subTitlePadding">首页</span>
     </el-menu-item>
-    <el-menu-item index="2">
+    <el-menu-item index="/directory-tree">
       <el-icon-Menu></el-icon-Menu>
-      <span class="subTitlePadding">组件1</span>
+      <span class="subTitlePadding">搜索树</span>
     </el-menu-item>
     <el-menu-item index="3">
       <el-icon-Menu></el-icon-Menu>

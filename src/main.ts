@@ -4,6 +4,7 @@ import router from "./router/index.ts"
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import * as Icons from '@element-plus/icons'
+import orangeComponents from './components/index.ts'
 
 const app = createApp(App)
 
@@ -14,4 +15,5 @@ for(let i in Icons){
 
 app.use(router)
 app.use(ElementPlus)
+app.use(orangeComponents)
 app.mount('#app')
