@@ -174,125 +174,152 @@ onMounted(() => {
 
 <style lang="less" scoped>
 .ds-directory-tree {
+  // ── 折叠面板整体 ──────────────────────────────
+  :deep(.el-collapse) {
+    border: none;
+  }
+
+  :deep(.el-collapse-item) {
+    margin-bottom: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(45, 122, 218, 0.15);
+    transition: box-shadow 0.2s;
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba(45, 122, 218, 0.25);
+    }
+  }
+
+  // ── 折叠头部 ─────────────────────────────────
+  :deep(.el-collapse-item__header) {
+    height: 52px;
+    padding: 0 16px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(90deg, #4a8eff 0%, #2d7ada 100%);
+    border: none;
+    border-radius: 0;
+
+    // 箭头图标改白色
+    .el-collapse-item__arrow {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 14px;
+      transition: transform 0.25s;
+    }
+  }
+
+  .title-part {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  // ── 折叠内容区 ───────────────────────────────
+  :deep(.el-collapse-item__content) {
+    padding-bottom: 0;
+    background: #fff;
+  }
+
+  // ── 搜索框 ───────────────────────────────────
+  .search-part {
+    padding: 0 12px;
+    border-bottom: 1px solid #eef2f8;
+
+    :deep(.el-input__wrapper) {
+      box-shadow: none !important;
+      background: transparent;
+      height: 44px;
+    }
+
+    :deep(.el-input__inner) {
+      font-size: 13px;
+      color: #333;
+
+      &::placeholder {
+        color: #bbb;
+      }
+    }
+  }
+
+  // ── 树节点 ───────────────────────────────────
+  :deep(.el-tree) {
+    background: #fff;
+    font-size: 14px;
+    color: #333;
+  }
+
+  :deep(.el-tree-node__content) {
+    height: 44px;
+    padding-left: 12px !important;
+    transition: background 0.15s, color 0.15s;
+
+    &:hover {
+      background: #eef4fd;
+
+      .custom-tree-node-title {
+        color: #2d7ada;
+        font-weight: 600;
+      }
+    }
+  }
+
+  :deep(.el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content) {
+    background: linear-gradient(90deg, #eef4fd 0%, #f8fbff 100%);
+    border-left: 3px solid #2d7ada;
+
+    .custom-tree-node-title {
+      color: #2d7ada;
+      font-weight: 600;
+    }
+  }
+
+  :deep(.el-tree-node > .el-tree-node__children) {
+    background: #fafcff;
+  }
+
+  .custom-tree-node-title {
+    width: 100%;
+    font-size: 14px;
+    color: #333;
+    transition: color 0.15s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  // ── 滚动条 ───────────────────────────────────
   .tree-scroll {
     max-height: 530px;
     overflow-y: auto;
 
     &::-webkit-scrollbar {
-      width: 10px;
-      height: 10px;
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: #f2f5f9;
-      border-radius: 32px;
+      background: #d0ddf0;
+      border-radius: 4px;
+
+      &:hover {
+        background: #aac0e8;
+      }
     }
   }
 
-  :deep(.el-tree-node > .el-tree-node__children) {
-    background: #ffffff;
-  }
-
-  .title-part {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-
-  .custom-tree-node-title {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    font-size: 14px;
-    font-family: Microsoft YaHei-Regular, Microsoft YaHei, serif;
-    font-weight: 400;
-    color: #222222;
-  }
-
-  .search-part {
-    width: 100%;
-
-    :deep(.el-input__wrapper) {
-      box-shadow: none;
-      border-bottom: 1px solid #eee;
-      border-radius: 0px;
-      height: 50px;
-    }
-  }
-
-  :deep(.el-tree) {
-    position: relative;
-    cursor: default;
-    background: #fff;
-    color: #303133;
-    font-size: 14px;
-    font-family: Microsoft YaHei-Regular, Microsoft YaHei, serif;
-  }
-
-  :deep(.el-tree-node__content) {
-    height: 56px !important;
-    position: relative;
-
-    &:hover {
-      background: linear-gradient(270deg, #f3f7ff 97%, #4a8eff 100%);
-      font-size: 14px;
-      font-family: Microsoft YaHei-Bold, Microsoft YaHei, serif;
-      font-weight: bold;
-      color: #2d7ada;
-    }
-  }
-
-  :deep(.el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content) {
-    background: linear-gradient(270deg, #f3f7ff 97%, #4a8eff 100%);
-    font-size: 14px;
-    font-family: Microsoft YaHei-Bold, Microsoft YaHei, serif;
-    font-weight: bold;
-    color: #2d7ada;
-
-    .custom-tree-node-title {
-      color: #2d7ada;
-    }
-  }
-
-  :deep(.el-collapse) {
-    border-bottom: none;
-  }
-
-  :deep(.el-collapse-item) {
-    margin-bottom: 16px;
-    box-shadow: 0px 6px 6px 1px rgba(28, 100, 221, 0.2);
-  }
-
-  :deep(.el-collapse-item__header) {
-    position: relative;
-    display: flex;
-    align-content: center;
-    padding-left: 4px;
-    font-size: 16px;
-    line-height: 60px;
-    font-family: Microsoft YaHei-Bold, Microsoft YaHei, serif;
-    font-weight: bold;
-    color: #ffffff;
-    width: 100%;
-    height: 60px;
-    background: linear-gradient(90deg, #4a8eff 0%, #2d7ada 100%);
-    background-size: 100% 60px;
-    background-repeat: no-repeat;
-  }
-
-  :deep(.el-collapse-item__content) {
-    padding-bottom: 0;
-    max-height: 1500px;
-    overflow-y: auto;
-  }
-
-  // 搜索关键词高亮样式
+  // ── 关键词高亮 ───────────────────────────────
   :deep(.highlight-keyword) {
-    color: #ff6b00;
-    background-color: #fff3e0;
-    font-weight: bold;
-    padding: 2px 0;
+    color: #e6500a;
+    background: #fff3e0;
+    font-weight: 700;
+    border-radius: 2px;
+    padding: 0 1px;
   }
 }
 </style>

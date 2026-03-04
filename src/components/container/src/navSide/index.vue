@@ -12,6 +12,10 @@
       <el-icon-Menu></el-icon-Menu>
       <span class="subTitlePadding">复合表格</span>
     </el-menu-item>
+    <el-menu-item index="/filter-tags">
+      <el-icon-Menu></el-icon-Menu>
+      <span class="subTitlePadding">筛选标签</span>
+    </el-menu-item>
   </el-menu>
 </template>
 

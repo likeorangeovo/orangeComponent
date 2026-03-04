@@ -22,6 +22,11 @@ const routes: Array<RouteRecordRaw> = [
         path: '/data-table',
         name: 'DataTable',
         component: () => import('../view/dataTable/index.vue')
+      },
+      {
+        path: '/filter-tags',
+        name: 'FilterTags',
+        component: () => import('../view/filterTags/index.vue')
       }
     ]
   }
