@@ -8,9 +8,9 @@
       <el-icon-Menu></el-icon-Menu>
       <span class="subTitlePadding">搜索树</span>
     </el-menu-item>
-    <el-menu-item index="3">
+    <el-menu-item index="/data-table">
       <el-icon-Menu></el-icon-Menu>
-      <span class="subTitlePadding">组件2</span>
+      <span class="subTitlePadding">复合表格</span>
     </el-menu-item>
   </el-menu>
 </template>

@@ -17,6 +17,11 @@ const routes: Array<RouteRecordRaw> = [
         path: '/directory-tree',
         name: 'DirectoryTree',
         component: () => import('../view/directoryTree/index.vue')
+      },
+      {
+        path: '/data-table',
+        name: 'DataTable',
+        component: () => import('../view/dataTable/index.vue')
       }
     ]
   }
