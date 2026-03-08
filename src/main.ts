@@ -7,7 +7,7 @@ import * as Icons from '@element-plus/icons'
 // import orangeComponents from './components/index.ts'
 
 // 引用打包后的js和css文件
-import orangeComponents from '../lib/orange-components.js'; 
+import orangeComponents from '../lib/index.js'; 
 import '../lib/orange-components.css';
 
 const app = createApp(App)

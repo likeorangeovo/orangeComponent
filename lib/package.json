@@ -1,0 +1,16 @@
+{
+  "name": "likeorangeovo-components",
+  "version": "0.0.0",
+  "main": "index.umd.js",
+  "module": "index.js",
+  "type": "index.d.ts",
+  "author": {
+    "name": "likeorangeovo"
+  },
+  "keywords": [
+    "element-plus",
+    "vue3",
+    "components",
+    "二次封装组件"
+  ]
+}
